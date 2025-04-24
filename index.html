@@ -24,6 +24,7 @@
     link.addEventListener('click', function() {
         var contentName = link.getAttribute('data-content-name');
         var contentPiece = link.getAttribute('data-content-piece');
+        console.log("Content Name:", contentName, "Content Piece:", contentPiece);  // Debug
         _paq.push(['trackContentInteraction', contentName, contentPiece]);
     });
 });
