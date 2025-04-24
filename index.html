@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Matomo</title>
+</head>
+<body>
+  <h1>Test de suivi avec Matomo</h1>
+  
+  <a href="https://google.fr" data-track-content data-content-name="banniere_home" data-content-piece="test1">Test 1</a><br>
+  <a href="https://yahoo.com" data-track-content data-content-name="banniere_home" data-content-piece="test2">Test 2</a><br>
+  <a href="https://bing.com" data-track-content data-content-name="banniere_home" data-content-piece="test3">Test 3</a>
+  
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(['requireConsent']);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    _paq.push(['trackAllContentImpressions']);
+    
+    document.querySelectorAll('a[data-track-content]').forEach(link => {
+        link.addEventListener('click', function() {
+            var contentName = link.getAttribute('data-content-name');
+            var contentPiece = link.getAttribute('data-content-piece');
+            _paq.push(['trackContentInteraction', contentName, contentPiece]);
+        });
+    });
+    
+    (function() {
+        var u="https://matomo.nalta.net/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '6']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+</body>
+</html>
