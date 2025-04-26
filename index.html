@@ -7,9 +7,9 @@
 <body>
   <h1>Test de suivi avec Matomo</h1>
   
-  <a href="https://google.fr" target="_blank" data-track-content data-content-name="banniere_home" data-content-piece="test1">Test 1</a><br>
-  <a href="https://yahoo.com" target="_blank" data-track-content data-content-name="banniere_home" data-content-piece="test2">Test 2</a><br>
-  <a href="https://bing.com" target="_blank" data-track-content data-content-name="banniere_home" data-content-piece="test3">Test 3</a>
+  <a href="https://google.fr" target="_blank" data-track-content data-content-name="banniere_home" data-content-piece="Fournisseur1">Fournisseur 1</a><br>
+  <a href="https://yahoo.com" target="_blank" data-track-content data-content-name="banniere_home" data-content-piece="Fournisseur2">Fournisseur 2</a><br>
+  <a href="https://bing.com" target="_blank" data-track-content data-content-name="banniere_home" data-content-piece="Fournisseur3">Fournisseur 3</a>
   
 
 
@@ -19,7 +19,7 @@
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
-  _paq.push(['trackAllContentImpressions']);
+  _paq.push(['trackVisibleContentImpressions']);
   document.querySelectorAll('a[data-track-content]').forEach(link => {
     link.addEventListener('click', function() {
         var contentName = link.getAttribute('data-content-name');
